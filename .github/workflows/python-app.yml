@@ -40,3 +40,7 @@ jobs:
         pip install pytest
         export PYTHONPATH=src
         pytest
+    - name: Deployment with Hugging Face
+      env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      run: git push --force https://bokadn:$HF_TOKEN@huggingface.co/spaces/bokadn/Sample_App
